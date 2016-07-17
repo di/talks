@@ -1,0 +1,5 @@
+env
+hypothesis-env
+.hypothesis
+__pycache__
+.cache
