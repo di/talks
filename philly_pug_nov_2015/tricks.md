@@ -24,7 +24,7 @@
 
 # Irked.
 
-![inline](~/jeffpicture.png)
+![inline](jeffpicture.png)
 
 
 ^ Recently a dev who primarily works with Ruby asked this question
@@ -690,7 +690,7 @@ usually strings[^2].
 e.g.: "**peter** **piper** **picked**
 a **peck** of **pickled** **peppers**"
 
-![original](~/trie_wide.png)
+![original](trie_wide.png)
 
 [^2]: <https://en.wikipedia.org/wiki/Trie>
 
