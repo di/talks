@@ -3,6 +3,13 @@ Slides from talks I have given, in chronological order.
 
 ---
 
+### The Fastest FizzBuzz In The West
+_Philly PUG (January 26, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/philly_pug_feb_2017/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/philly_pug_feb_2017/talk.md)
+
+---
+
 ### Python Versions (and the Python 2.6 Tipping Point)
 _Philly PUG Lightning Talk (October 20, 2016)_
 * [PDF](https://github.com/di/talks/blob/master/python2.6/python-versions.pdf)
