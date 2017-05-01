@@ -3,6 +3,13 @@ Slides from talks I have given, in chronological order.
 
 ---
 
+### Good Hacker; Bad Hacker (Austin PUG lightning talk)
+_Austin PUG Lightning Talk (April 12, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/austin_pug_april_2017/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/austin_pug_april_2017/talk.md)
+
+---
+
 ### The Fastest FizzBuzz In The West
 _Philly PUG (January 26, 2017)_
 * [PDF](https://github.com/di/talks/blob/master/philly_pug_feb_2017/talk.pdf)
