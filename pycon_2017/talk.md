@@ -20,16 +20,6 @@
 ## _in the_
 # West
 
-^ So I'm sure almost everyone's heard of FizzBuzz
-
-^ If you haven't, FizzBuzz is a mythical interview question to see how well you can write code in an environment in which you will never actually write code
-
-^ The goal is to sufficiently intimidate junior developers so they will know to steer clear of your organization
-
-^ It also has the nice effect of offending senior developers too.
-
-^ So it's great for quickly narrowing down your hiring pipeline.
-
 ---
 
 # This talk is not about
@@ -37,7 +27,7 @@
 
 ^ First things first, this talk is not about fizzbuzz
 
-^ But FizzBuzz is the kind of faux-motivation for this talk
+^ however FizzBuzz is the kind of faux-motivation for this talk
 
 ^ So to get started, I actually need to explain fizzbuzz
 
@@ -61,23 +51,7 @@ If a number is divisible by both **3** and **5**, print **'fizzbuzz'**.
 
 ---
 
-# FizzBuzz
-
-```python
->>> def fizzbuzz(n):
-...    for i in range(1, n+1):
-...        if i % 15 == 0:
-...            print('fizzbuzz')
-...        elif i % 3 == 0:
-...            print('fizz')
-...        elif i % 5 == 0:
-...            print('buzz')
-...        else:
-...            print(i)
-...
-```
-
-^ Early on, this is probably close to what I would have written
+![](images/44300449-a-caucasian-male-interviewer-looking-skeptical-while-listening-to-an-asian-female-interviewee--Stock-Photo.jpg)
 
 ---
 
@@ -85,8 +59,53 @@ If a number is divisible by both **3** and **5**, print **'fizzbuzz'**.
 
 ```python
 >>> def fizzbuzz(n):
-...    for i in range(n):
-...        print(i%3//2*'fizz'+i%5//4*'buzz'or i+1)
+...     for i in range(1, n+1):
+...         if i % 15 == 0:
+...             print('fizzbuzz')
+...         elif i % 3 == 0:
+...             print('fizz')
+...         elif i % 5 == 0:
+...             print('buzz')
+...         else:
+...             print(i)
+...
+```
+
+^ Early on, this is probably close to what I would have written
+
+^ This would have totally sufficed
+
+---
+
+# FizzBuzz
+
+```python
+>>> fizzbuzz(15)
+1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizzbuzz
+```
+
+---
+
+# FizzBuzz
+
+```python
+>>> def fizzbuzz(n):
+...     for i in range(n):
+...         print(i%3//2*'fizz'+i%5//4*'buzz'or i+1)
 ```
 
 ^ I got pretty obsessed with really terse programming at one point
@@ -135,7 +154,7 @@ end program fizzbuzz_if
 [-]<<[-<+>]]<<<.<]
 ```
 
-^ I thought, maybe i could actually figure out how to use brainfuck
+^ I thought, maybe i could actually figure out how to memorize that
 
 ---
 
@@ -162,6 +181,10 @@ end program fizzbuzz_if
 
 ^ AKA
 
+^ number one priority for this language, implement fb as fast as possible
+
+^ Since it's my own language, i can make the syntax whatever I want
+
 ---
 
 # DIVSPL
@@ -172,27 +195,87 @@ fizz=3
 buzz=5
 ```
 
-^ Since it's my own language, i can make the syntax whatever I want
+^ the bare minimum of information necessary to execute fizzbuzz
+
+^ goal for this talk is to show you how to take that syntax
+
+^ turn it into something that solves the fizzbuzz problem
 
 ---
 
-![](images/rply.png)
+# On the shoulders of giants
 
-^ I found RPLY
-
-^ RPLY is an implementation of PLY compatible with RPython (and with a cooler API)
-
-^ RPython is a restricted subset of Python
-
-^ PLY is a Python implementation of the Lex and Yacc tools
-
-^ Lex is unix tool which generates lexical analyzers
-
-^ Yacc is a parser generator, aka "Yet Another Compiler Compiler"
-
-^ Got that?
+^ dr. vanderplas
 
 ---
+
+# On the shoulders of giants
+
+* **RPLY**: an implementation of **PLY** compatible with **RPython** (c. 2012)
+* **PLY**:  a Python implentation of the **Lex** and **Yacc** tools (c. 2001)
+* **Lex**: unix tool which generates lexical analyzers (c. 1975)
+* **Yacc**: a parser generator, aka "Yet Another Compiler Compiler" (c. 1970)
+* **RPython**: a restricted subset of Python
+
+^ used for producing implementations of languages like python
+
+---
+
+# Python
+
+
+```python
+>>> x = 'hello'
+>>> x = 42
+>>>
+```
+
+^ Python is dynamically typed
+
+---
+
+
+# Python
+
+```python
+>>> def something(x):
+...     if x:
+...         return 'hello'
+...     else:
+...         return 42
+...
+>>>
+```
+
+^ functions can return different types
+
+^ RPython program restrictions mostly limit the ability to mix types in arbitrary ways.
+
+---
+
+# RPython
+
+```
+[translation:ERROR] UnionError:
+
+Offending annotations:
+  SomeString(const='hello', no_nul=True)
+  SomeInteger(const=42, knowntype=int, nonneg=True, unsigned=False)
+
+In <FunctionGraph of (rpython_fail:1)something at 0x110f7ca90>:
+<return block>
+Processing block:
+ block@3 is a <class 'rpython.flowspace.flowcontext.SpamBlock'>
+ in (rpython_fail:1)something
+ containing the following operations:
+       v0 = bool(x_0)
+```
+
+^ so if you see me doing some odd looking python later, this is why
+
+---
+
+![](images/The_Cow_Boy_1888.jpg)
 
 # Let's design a language
 
@@ -234,7 +317,7 @@ buzz=5
 "I saw a man eating chicken"
 
 ```python
-['I', 'saw', 'a', 'man', 'eating', 'chicken']
+('I', 'saw', 'a', 'man', 'eating', 'chicken')
 ```
 
 ^ Luckily we have spaces
@@ -248,7 +331,7 @@ buzz=5
 "I saw a man eating chicken"
 
 ```python
-['I', 'saw', 'a', 'man', ['eating', 'chicken']]
+('I', 'saw', ('a', 'man', ('eating', 'chicken')))
 ```
 
 ---
@@ -262,7 +345,7 @@ buzz=5
 "I saw a man eating chicken"
 
 ```python
-['I', 'saw', 'a', 'man', ['eating', 'chicken']]
+('I', 'saw', ('a', 'man', ('eating', 'chicken')))
 ```
 
 ---
@@ -272,7 +355,7 @@ buzz=5
 "I saw a man eating chicken"
 
 ```python
-['I', 'saw', 'a', ['man', 'eating'], 'chicken']
+('I', 'saw', ('a', ('man', 'eating'), 'chicken'))
 ```
 
 ---
@@ -286,16 +369,16 @@ buzz=5
 "I saw a man-eating chicken"
 
 ```python
-['I', 'saw', 'a', ['man-eating', 'chicken']]
+('I', 'saw', ('a', 'man-eating', 'chicken'))
 ```
 
 ---
 
-# Parallels to written language
+# Steps to interpreting a language
 
-* Break characters into tokens (lexer)
-* Combine tokens into expressions (parser)
-* Evaluate expressions (interpreter)
+1. Break characters into tokens
+1. Combine tokens into expressions
+1. Evaluate expressions
 
 ---
 
@@ -377,9 +460,11 @@ fizz=3\n
 buzz=5\n
 ```
 
-Newlines?
+Whitespace?
 
 ---
+
+![](images/The_Cow_Boy_1888.jpg)
 
 # Let's make a lexer
 
@@ -645,6 +730,16 @@ rply.errors.LexingError
 
 ---
 
+# Steps to interpreting a language
+
+1. ~~Break characters into tokens~~ (lexer)
+1. Combine tokens into expressions
+1. Evaluate expressions
+
+---
+
+![](images/The_Cow_Boy_1888.jpg)
+
 # Let's make a parser
 
 ^ Specifically, we're going to make a Look-Ahead Left-Right parser
@@ -707,6 +802,7 @@ rply.errors.LexingError
 # Let's make a parser
 
 ```python
+>>> from rply.token import BaseBox
 >>> class IntBox(BaseBox):
 ...     def __init__(self, value):
 ...         self.value = value
@@ -737,6 +833,57 @@ rply.errors.LexingError
 ```
 
 ---
+
+![fit](images/boxes3.jpeg)
+
+^ Rangebox
+
+---
+
+# Let's make a parser
+
+```python
+>>> class RangeBox(BaseBox):
+...     def __init__(self, low, high):
+...         self.low = low
+...         self.high = high
+...     def getrange(self):
+...         return range(
+...           self.low.getint(),
+...           self.high.getint() + 1,
+...         )
+...
+```
+
+---
+
+# Let's make a parser
+
+```python
+>>> box = RangeBox(
+...     IntBox(Token("NUMBER", "1"))
+...     IntBox(Token("NUMBER", "15"))
+... )
+>>>
+```
+
+---
+
+# Let's make a parser
+
+```python
+>>> box = RangeBox(
+...     IntBox(Token("NUMBER", "1"))
+...     IntBox(Token("NUMBER", "15"))
+... )
+...
+>>> box.getrange()
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+>>>
+```
+
+---
+
 
 ![fit](images/boxes2.jpeg)
 
@@ -778,64 +925,6 @@ rply.errors.LexingError
 
 ---
 
-![fit](images/boxes3.jpeg)
-
-^ Rangebox
-
----
-
-# Let's make a parser
-
-```python
->>> class RangeBox(BaseBox):
-...     def __init__(self, low, high):
-...         self.low = low
-...         self.high = high
-...     def getrange(self):
-...         return range(
-...           self.low.getint(),
-...           self.high.getint() + 1,
-...         )
-...
->>>
-```
-
----
-
-# Let's make a parser
-
-```python
->>> intbox1 = IntBox(Token("NUMBER", "1"))
->>> intbox3 = IntBox(Token("NUMBER", "3"))
->>>
-```
-
----
-
-# Let's make a parser
-
-```python
->>> intbox1 = IntBox(Token("NUMBER", "1"))
->>> intbox3 = IntBox(Token("NUMBER", "3"))
->>> box = RangeBox(intbox1, intbox3)
->>>
-```
-
----
-
-# Let's make a parser
-
-```python
->>> intbox1 = IntBox(Token("NUMBER", "1"))
->>> intbox3 = IntBox(Token("NUMBER", "3"))
->>> box = RangeBox(intbox1, intbox3)
->>> box.getrange()
-[1, 2, 3]
->>>
-```
-
----
-
 ![fit](images/boxes4.jpeg)
 
 ^ AssignmentBox
@@ -850,9 +939,10 @@ rply.errors.LexingError
 ...         self.word = word
 ...         self.number = number
 ...     def eval_with(self, i):
-...         if not i % self.number.getint():
-...             return self.word.getstr()
-...         return ''
+...         if i % self.number.getint():
+...             return ''
+...         return self.word.getstr()
+...
 >>>
 ```
 
@@ -861,7 +951,11 @@ rply.errors.LexingError
 # Let's make a parser
 
 ```python
->>> wordbox = WordBox(Token("WORD", "fizz"))
+>>> box = AssignmentBox(
+...     WordBox(Token("WORD", "fizz"))
+...     IntBox(Token("NUMBER", "3"))
+... )
+...
 >>>
 ```
 
@@ -870,31 +964,12 @@ rply.errors.LexingError
 # Let's make a parser
 
 ```python
->>> wordbox = WordBox(Token("WORD", "fizz"))
->>> intbox7 = IntBox(Token("NUMBER", "7"))
->>>
-```
-
----
-
-# Let's make a parser
-
-```python
->>> wordbox = WordBox(Token("WORD", "fizz"))
->>> intbox7 = IntBox(Token("NUMBER", "7"))
->>> asnbox = AssignmentBox(wordbox, intbox7)
->>>
-```
-
----
-
-# Let's make a parser
-
-```python
->>> wordbox = WordBox(Token("WORD", "fizz"))
->>> intbox7 = IntBox(Token("NUMBER", "7"))
->>> asnbox = AssignmentBox(wordbox, intbox7)
->>> asnbox.eval_with(40)
+>>> box = AssignmentBox(
+...     WordBox(Token("WORD", "fizz"))
+...     IntBox(Token("NUMBER", "3"))
+... )
+...
+>>> box.eval_with(40)
 ''
 >>>
 ```
@@ -904,12 +979,14 @@ rply.errors.LexingError
 # Let's make a parser
 
 ```python
->>> wordbox = WordBox(Token("WORD", "fizz"))
->>> intbox7 = IntBox(Token("NUMBER", "7"))
->>> asnbox = AssignmentBox(wordbox, intbox7)
->>> asnbox.eval_with(40)
+>>> box = AssignmentBox(
+...     WordBox(Token("WORD", "fizz"))
+...     IntBox(Token("NUMBER", "3"))
+... )
+...
+>>> box.eval_with(40)
 ''
->>> asnbox.eval_with(42)
+>>> box.eval_with(42)
 'fizz'
 >>>
 ```
@@ -939,7 +1016,85 @@ rply.errors.LexingError
 
 ---
 
-# (insert example here)
+# Let's make a parser
+
+```python
+>>> box = AssignmentsBox(
+...     AssignmentsBox(),
+...     AssignmentBox(
+...         WordBox(Token('WORD', 'fizz')),
+...         IntBox(Token('NUMBER', '3'))
+...     )
+... )
+...
+>>>
+```
+
+---
+
+# Let's make a parser
+
+```python
+>>> box = AssignmentsBox(
+...     AssignmentsBox(),
+...     AssignmentBox(
+...         WordBox(Token('WORD', 'fizz')),
+...         IntBox(Token('NUMBER', '3'))
+...     )
+... )
+...
+>>> box.getlist()
+[<divspl.boxes.AssignmentBox object at 0x100d3d6d0>]
+```
+
+---
+
+# Let's make a parser
+
+```python
+>>> box = AssignmentsBox(
+...     AssignmentsBox(
+...         AssignmentsBox(),
+...         AssignmentBox(
+...             WordBox(Token('WORD', 'fizz')),
+...             IntBox(Token('NUMBER', '3'))
+...         )
+...     ),
+...     AssignmentBox(
+...         WordBox(Token('WORD', 'buzz')),
+...         IntBox(Token('NUMBER', '5'))
+...     )
+... )
+...
+>>>
+
+,
+```
+
+---
+
+# Let's make a parser
+
+```python
+>>> box = AssignmentsBox(
+...     AssignmentsBox(
+...         AssignmentsBox(),
+...         AssignmentBox(
+...             WordBox(Token('WORD', 'fizz')),
+...             IntBox(Token('NUMBER', '3'))
+...         )
+...     ),
+...     AssignmentBox(
+...         WordBox(Token('WORD', 'buzz')),
+...         IntBox(Token('NUMBER', '5'))
+...     )
+... )
+...
+>>> box.getlist()
+[<divspl.boxes.AssignmentBox object at 0x1051c7890>,
+ <divspl.boxes.AssignmentBox object at 0x1051c7a10>]
+```
+
 
 ---
 
@@ -989,7 +1144,36 @@ rply.errors.LexingError
 
 ---
 
-# (insert examples here)
+# Let's make a parser
+
+```python
+>>> box = MainBox(
+...     RangeBox(
+...         IntBox(Token('NUMBER', '1')),
+...         IntBox(Token('NUMBER', '15'))
+...     ),
+...     AssignmentsBox(
+...         AssignmentsBox(
+...             AssignmentsBox(),
+...             AssignmentBox(
+...                 WordBox(Token('WORD', 'fizz')),
+...                 IntBox(Token('NUMBER', '3'))
+...             )
+...         ),
+...         AssignmentBox(
+...             WordBox(Token('WORD', 'buzz')),
+...             IntBox(Token('NUMBER', '5'))
+...         )
+...     )
+... )
+...
+>>> box.eval()
+'1\n2\nfizz\n4\nbuzz\nfizz\n7\n8\nfizz\nbuzz\n11\nfizz\n13\n14\nfizzbuzz\n'
+```
+
+---
+
+![fit](images/boxtree.jpeg)
 
 ---
 
@@ -1103,6 +1287,8 @@ _main_ ⟶ _range_ _assignments_
 >>>
 ```
 
+^ p is a sequence containing the values of each grammar symbol in the corresponding rule
+
 ---
 
 # Let's make a parser
@@ -1202,7 +1388,7 @@ _main_ ⟶ _range_ _assignments_
 
 ```python
 >>> parser = pg.build()
->>> parser.parse(lexer.lex('1...3'))
+>>> parser.parse(lexer.lex('1...15'))
 <divspl.boxes.MainBox object at 0x10a37cc50>
 ```
 
@@ -1212,13 +1398,23 @@ _main_ ⟶ _range_ _assignments_
 
 ```python
 >>> parser = pg.build()
->>> parser.parse(lexer.lex('1...3'))
+>>> parser.parse(lexer.lex('1...15'))
 <divspl.boxes.MainBox object at 0x10a37cc50>
->>> parser.parse(lexer.lex('1...3')).eval()
-'1\n2\n3\n'
+>>> parser.parse(lexer.lex('1...15')).eval()
+'1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n'
 ```
 
 ---
+
+# Steps to interpreting a language
+
+1. ~~Break characters into tokens~~ (lexer)
+1. ~~Combine tokens into expressions~~ (parser)
+1. Evaluate expressions
+
+---
+
+![](images/The_Cow_Boy_1888.jpg)
 
 # Let's make an interpreter
 
@@ -1229,6 +1425,8 @@ _main_ ⟶ _range_ _assignments_
 # Let's make an interpreter
 
 ```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
 >>> def begin():
 ...     if len(sys.argv) > 1:
 ...         with open(sys.argv[1], 'r') as f:
@@ -1252,8 +1450,17 @@ _main_ ⟶ _range_ _assignments_
 
 ^ We evaluate and print the result
 
+---
+
+# Steps to interpreting a language
+
+1. ~~Break characters into tokens~~ (lexer)
+1. ~~Combine tokens into expressions~~ (parser)
+1. ~~Evaluate expressions~~ (interpreter)
 
 ---
+
+![](images/The_Cow_Boy_1888.jpg)
 
 # Let's code
 
@@ -1275,14 +1482,13 @@ buzz=5
 ```
 $ pip install divspl
 Collecting divspl
-  Downloading divspl-0.0.3.tar.gz
+  Downloading divspl-0.0.4-py3-none-any.whl
 Collecting rply (from divspl)
-  Using cached rply-0.7.4-py2.py3-none-any.whl
+  Downloading rply-0.7.4-py2.py3-none-any.whl
 Collecting appdirs (from rply->divspl)
-  Using cached appdirs-1.4.0-py2.py3-none-any.whl
+  Downloading appdirs-1.4.3-py2.py3-none-any.whl
 Installing collected packages: appdirs, rply, divspl
-  Running setup.py install for divspl ... done
-Successfully installed appdirs-1.4.0 divspl-0.0.3 rply-0.7.4
+Successfully installed appdirs-1.4.3 divspl-0.0.4 rply-0.7.4
 ```
 
 ---
@@ -1309,6 +1515,8 @@ fizzbuzz
 ```
 
 ---
+
+![](images/The_Cow_Boy_1888.jpg)
 
 # Let's review
 
@@ -1392,6 +1600,8 @@ fizzbuzz
 
 ---
 
+![](images/The_Cow_Boy_1888.jpg)
+
 # Let's take it a step further
 
 ---
@@ -1417,6 +1627,50 @@ If a number is divisible by both **3** and **7**, print **'fizzfuzz'**.
 If a number is divisible by both **5** and **7**, print **'buzzfuzz'**.
 
 If a number is divisible by **3**, **5** and **7**, print **'fizzbuzzfuzz'**.
+
+---
+
+# Let's take it a step further
+
+```python
+>>> def fizzbuzz(n):
+...     for i in range(1, n+1):
+...         if i % 15 == 0:
+...             print('fizzbuzz')
+...         elif i % 3 == 0:
+...             print('fizz')
+...         elif i % 5 == 0:
+...             print('buzz')
+...         else:
+...             print(i)
+...
+```
+
+---
+
+# Let's take it a step further
+
+```python
+>>> def fizzbuzz(n):
+...     for i in range(1, n+1):
+...         if i % (3*5*7) == 0:
+...             print('fizzbuzzfuzz')
+...         elif i % 15 == 0:
+...             print('fizzbuzz')
+...         elif i % (3*7) == 0:
+...             print('fizzfuzz')
+...         elif i % (5*7) == 0:
+...             print('buzzfuzz')
+...         elif i % 3 == 0:
+...             print('fizz')
+...         elif i % 5 == 0:
+...             print('buzz')
+...         elif i % 7 == 0:
+...             print('fuzz')
+...         else:
+...             print(i)
+...
+```
 
 ---
 
@@ -1459,15 +1713,184 @@ fizzbuzzfuzz
 
 ---
 
-# Thanks
+![](images/The_Cow_Boy_1888.jpg)
+
+# Questions
+
+---
+
+## "Why would I ever use this?"
+
+^ depends on what you're talking about.
+
+^ if you're talking about DIVSPL, it's really only good for one thing
+
+---
+
+![](images/44300449-a-caucasian-male-interviewer-looking-skeptical-while-listening-to-an-asian-female-interviewee--Stock-Photo.jpg)
+
+^ so if this guy ever asks you to do fizzbuzz, i really hope you use it
+
+---
+
+## "Why would I ever make my own language?"
+
+^ Python is pretty great right?
+
+^ didn't have a great answer for this
+
+^ but yesterday I was in James talk "Next Level Testing"
+
+^ in which in one of his examples he talks about his tool jmespath
+
+---
+
+## `jmespath`
+
+^ I learned two things about jmespath
+
+^ First, it's pronounces james path
+
+^ Which means he named it after himself and clearly i approve of that
+
+^ And second that it uses something called a "jmespath expression"
+
+---
+
+## `jmespath`
+
+```python
+>>> import jmespath
+>>> path = jmespath.search('foo.bar', {'foo': {'bar': 'baz'}})
+'baz'
+```
+
+---
+
+![fit](images/jmespath2.png)
+
+---
+
+![fit](images/jmespath.png)
+
+^ He's not using RPLY or PLY
+
+^ I don't know enough about jmespath to say if he could
+
+^ But this is a great example of a time when you might want to make your own language
+
+^ Here's another question I'm anticipating
+
+---
+
+## "So... is it faster?"
+
+^ again, depends on what you mean
+
+---
+
+## "Is it faster to implement FizzBuzz?"
+
+^ then yes
+
+---
+
+![inline](images/twitter1.png)
+
+---
+
+![inline](images/twitter2.png)
+
+---
+
+![inline](images/twitter3.png)
+
+^ but maybe you came to this talk really wanting some high-performance fizzbuzzing
+
+---
+
+## "Is it faster to evaluate FizzBuzz?"
+
+^ again... yes
+
+---
+
+![fit autoplay](images/compiling.mov)
+
+
+^ once you get past the non-trivial time to compile everything in RPython
+
+---
+
+## Benchmarks
+
+```
+$ cat slow.py
+def fizzbuzz(n):
+    for i in range(1, n+1):
+        if i % 15 == 0:
+            print('fizzbuzz')
+        elif i % 3 == 0:
+            print('fizz')
+        elif i % 5 == 0:
+            print('buzz')
+        else:
+            print(i)
+
+
+fizzbuzz(1000000)
+```
+
+---
+
+## Benchmarks
+
+```
+$ cat fizzbuzz.divspl
+1...1000000
+fizz=3
+buzz=5
+```
+
+---
+
+## Benchmarks
+
+```
+$ /usr/bin/time python slow.py >/dev/null
+        0.71 real         0.67 user         0.03 sys
+$ /usr/bin/time python slow.py >/dev/null
+        0.73 real         0.70 user         0.02 sys
+$ /usr/bin/time python slow.py >/dev/null
+        0.79 real         0.72 user         0.02 sys
+$
+$ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
+        0.31 real         0.25 user         0.05 sys
+$ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
+        0.33 real         0.26 user         0.05 sys
+$ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
+        0.33 real         0.26 user         0.05 sys
+```
 
 ---
 
 # Links
 
-* <https://github.com/di/divspl>
-* RPLY: <https://github.com/alex/rply>
-    * RPython: <https://en.wikipedia.org/wiki/PyPy#RPython>
-    * PLY: <http://www.dabeaz.com/ply/>
-        * Lex: <https://en.wikipedia.org/wiki/Lex_(software)>
-        * Yacc: <https://en.wikipedia.org/wiki/Yacc>
+* [`github.com/di`](http://github.com/di)
+* [`github.com/di/divspl`](http://github.com/di/divspl)
+* [`github.com/di/talks`](http://github.com/di/talks)
+* [`promptworks.com`](http://github.com/di/talks)
+
+---
+
+![](images/The_Cow_Boy_1888.jpg)
+
+# Thanks!
+
+^ PromptWorks
+
+^ David Beazly and Alex Gaynor for being giants
+
+^ PyCon staff & volunteers
+
+^ all of you
