@@ -526,7 +526,7 @@ Whitespace?
 >>>
 ```
 
-^ An assignment token is the equals sign
+^ An equals token is the equals sign
 
 ---
 
@@ -1179,6 +1179,8 @@ rply.errors.LexingError
 
 # Defining productions
 
+^ going to turn a pattern of tokens into one of our boxes
+
 ---
 
 # Let's make a parser
@@ -1690,6 +1692,16 @@ buzz=5
 1...105
 fizz=3
 buzz=5
+```
+
+---
+
+# Let's take it a step further
+
+```mercury
+1...105
+fizz=3
+buzz=5
 fuzz=7
 ```
 
@@ -1805,11 +1817,11 @@ fizzbuzzfuzz
 
 ![inline](images/twitter3.png)
 
-^ but maybe you came to this talk really wanting some high-performance fizzbuzzing
-
 ---
 
 ## "Is it faster to evaluate FizzBuzz?"
+
+^ but maybe you came to this talk really wanting some high-performance fizzbuzzing
 
 ^ again... yes
 
