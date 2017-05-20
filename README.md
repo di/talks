@@ -3,6 +3,13 @@ Slides from talks I have given, in chronological order.
 
 ---
 
+### The Fastest FizzBuzz In The West
+_PyCon 2016 Talk (May 20, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/pycon_2017/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/pycon_2017/talk.md)
+
+---
+
 ### Good Hacker; Bad Hacker (Austin PUG lightning talk)
 _Austin PUG Lightning Talk (April 12, 2017)_
 * [PDF](https://github.com/di/talks/blob/master/austin_pug_april_2017/talk.pdf)
