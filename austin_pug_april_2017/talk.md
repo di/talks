@@ -1,3 +1,10 @@
+theme: Poster
+
+# Austin PUG
+## Good Hacker / Bad Hacker
+
+---
+
 # [fit] Dustin Ingram
 # [fit] _[`http://github.com/di`](http://github.com/di)_
 

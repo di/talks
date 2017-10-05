@@ -1,5 +1,10 @@
 theme: Next
 
+# FLPY 2017
+## Detecting Asteroids with Neural Networks
+
+---
+
 ![](images/dumb_face.png)
 
 # [fit] Hi, I'm Dustin

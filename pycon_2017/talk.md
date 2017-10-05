@@ -1,3 +1,10 @@
+theme: Next
+
+# PyCon 2017
+## The Fastest FizzBuzz in the West
+
+---
+
 ![](images/dumb_face.png)
 
 # Hi, I'm Dustin

@@ -1,5 +1,10 @@
 theme: Next
 
+# Lightning Talk
+## Python 2.6 Recap
+
+---
+
 # [fit] Hi, I'm Dustin
 # [fit] [`http://github.com/di`](http://github.com/di)
 
