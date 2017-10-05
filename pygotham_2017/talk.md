@@ -1,7 +1,9 @@
+theme: Next
+
 ![](images/dumb_face.png)
 
-# Hi, I'm Dustin
-## [`http://github.com/di`](http://github.com/di)
+# [fit] Hi, I'm Dustin
+# [fit] [`http://github.com/di`](http://github.com/di)
 
 ^ My name's Dustin Ingram
 
@@ -9,7 +11,11 @@
 
 ![](images/jumbotron-081.jpg)
 
-^ I work at PromptWorks, a software consultancy in Philadelphia
+^ I work at PromptWorks, a software development shop based in Philadelphia
+
+---
+
+![](images/locations.jpg)
 
 ---
 
@@ -51,10 +57,6 @@ If a number is divisible by both **3** and **5**, print **'fizzbuzz'**.
 
 ---
 
-![](images/44300449-a-caucasian-male-interviewer-looking-skeptical-while-listening-to-an-asian-female-interviewee--Stock-Photo.jpg)
-
----
-
 # FizzBuzz
 
 ```python
@@ -72,8 +74,6 @@ If a number is divisible by both **3** and **5**, print **'fizzbuzz'**.
 ```
 
 ^ Early on, this is probably close to what I would have written
-
-^ This would have totally sufficed
 
 ---
 
@@ -97,6 +97,8 @@ fizz
 14
 fizzbuzz
 ```
+
+^ This would have totally sufficed
 
 ---
 
@@ -200,12 +202,6 @@ buzz=5
 ^ goal for this talk is to show you how to take that syntax
 
 ^ turn it into something that solves the fizzbuzz problem
-
----
-
-# On the shoulders of giants
-
-^ dr. vanderplas
 
 ---
 
@@ -1316,10 +1312,6 @@ _range_ ⟶ NUMBER ELLIPSIS NUMBER
 >>>
 ```
 
-^ This is how we define our rule in python
-
-^ You might notice the RangeBox
-
 ---
 
 # Let's make a parser
@@ -1430,27 +1422,107 @@ _main_ ⟶ _range_ _assignments_
 >>> lexer = lg.build()
 >>> parser = pg.build()
 >>> def begin():
-...     if len(sys.argv) > 1:
-...         with open(sys.argv[1], 'r') as f:
-...             result = parser.parse(lexer.lex(f.read()))
-...             print(result.eval())
-...     else:
-...         print("Please provide a filename.")
+...     with open(sys.argv[1], 'r') as f:
 ...
->>>
 ```
 
 ^ This is a rough approximation
 
+^ First we nitialize the lexer and parser
+
+^ This is a rough approximation
+
+^ Let's imagine this function is being called as an executable where the first argument is the source file name
+
+---
+
+# Let's make an interpreter
+
+```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
+>>> def begin():
+...     with open(sys.argv[1], 'r') as f:
+...         source = f.read()
+...
+```
+
 ^ Reads in a file
+
+---
+
+# Let's make an interpreter
+
+```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
+>>> def begin():
+...     with open(sys.argv[1], 'r') as f:
+...         source = f.read()
+...         tokens = lexer.lex(source)
+...
+>>>
+```
 
 ^ Hands the character stream to the lexer
 
-^ Lexer hands the token stream to the parser
+---
 
-^ Parser returns a result
+# Let's make an interpreter
 
-^ We evaluate and print the result
+```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
+>>> def begin():
+...     with open(sys.argv[1], 'r') as f:
+...         source = f.read()
+...         tokens = lexer.lex(source)
+...         expression = parser.parse(tokens)
+...
+>>>
+```
+
+^ Parser returns an expression
+
+---
+
+# Let's make an interpreter
+
+```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
+>>> def begin():
+...     with open(sys.argv[1], 'r') as f:
+...         source = f.read()
+...         tokens = lexer.lex(source)
+...         expression = parser.parse(tokens)
+...         result = expression.eval()
+...         print(result)
+...
+>>>
+```
+
+^ We evaluate the expression into a result
+
+---
+
+# Let's make an interpreter
+
+```python
+>>> lexer = lg.build()
+>>> parser = pg.build()
+>>> def begin():
+...     with open(sys.argv[1], 'r') as f:
+...         source = f.read()
+...         tokens = lexer.lex(source)
+...         expression = parser.parse(tokens)
+...         result = expression.eval()
+...         print(result)
+...
+>>>
+```
+
+^ And finally we just print the result
 
 ---
 
@@ -1737,11 +1809,7 @@ fizzbuzzfuzz
 
 ^ if you're talking about DIVSPL, it's really only good for one thing
 
----
-
-![](images/44300449-a-caucasian-male-interviewer-looking-skeptical-while-listening-to-an-asian-female-interviewee--Stock-Photo.jpg)
-
-^ so if this guy ever asks you to do fizzbuzz, i really hope you use it
+^ so if anyone ever asks you to do fizzbuzz, i really hope you use it
 
 ---
 
@@ -1886,23 +1954,13 @@ $ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
 
 ---
 
-# Links
-
-* [`github.com/di`](http://github.com/di)
-* [`github.com/di/divspl`](http://github.com/di/divspl)
-* [`github.com/di/talks`](http://github.com/di/talks)
-* [`promptworks.com`](http://github.com/di/talks)
-
----
-
 ![](images/The_Cow_Boy_1888.jpg)
 
-# Thanks!
+# [fit] Thanks!
+# [fit] [`http://github.com/di`](http://github.com/di)
 
 ^ PromptWorks
 
-^ David Beazly and Alex Gaynor for being giants
-
-^ PyCon staff & volunteers
+^ PyGotham organizers and volunteers
 
 ^ all of you
