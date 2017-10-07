@@ -116,6 +116,8 @@ theme: Next
 
 ^ rails, jquery, rust, and ember
 
+^ we're going to mostly focus on ember, which is a frontend framework
+
 ---
 
 # Stability
@@ -146,13 +148,15 @@ theme: Next
 
 # #2: Release Channels
 
+^ For ember, this was originally three release channels
+
 ---
 
 # Canary
 
 ^ Canary - features ASAP, no guarantees
 
-^ Code might have been written the same day as the release
+^ Code might have been written and merged the same day as the release
 
 ---
 
@@ -186,11 +190,13 @@ theme: Next
 
 ^ A given feature is deployed to each channel, in order, one release after another
 
-^ Part two is...
-
 ---
 
 # Have Multiple "speeds"
+
+^ One issue that ember ran into with this approach is that not everyone wanted to upgrade every six weeks
+
+^ Even if they were on the release branch, this was too fast
 
 ---
 
@@ -200,18 +206,13 @@ theme: Next
 
 ^ And making that channel's releases take 4x as long
 
-^ This basically amounts to an LTS release, which is a common practice in the linux/unix community
+^ This basically amounts to a Long Term Service release, which is a common practice in the linux/unix community
 
 ^ If the six-week releases are happening too quickly, the LTS release is guaranteed to exist and be stable for a longer window of time
 
 ^ Also, you get bugfixes for the entirety of the LTS release
 
 ^ Also, breaking changes are first deprecated in an LTS release
-
-
-^ Side note: if the thought of making your release process conform to this diagram frightens you, you're doing it wrong
-
-^ All of these releases should be automated!
 
 ---
 
@@ -224,6 +225,8 @@ theme: Next
 ---
 
 # Benefits
+
+^ From Ember's perspective, there are three main groups of folks who reap the benefits of this approach
 
 ---
 
@@ -239,6 +242,10 @@ theme: Next
 
 ^ Contributors can predict when their feature will be released and what the process is.
 
+^ If I fix a bug that I really need
+
+^ I don't have to ask "When will this be released"?
+
 ---
 
 # ...to Add-on Authors & Developers
@@ -252,13 +259,13 @@ theme: Next
 
 ![](images/yehuda.jpg)
 
-^ The swiss don't run for trains because they want to take it easy
+^ The swiss don't run for trains because they're lazy and they want to take it easy
 
 ^ They don't run for trains because they're concerned about their image
 
 ^ They don't run for trains becaues they know there's another one coming
 
-^ And because they know that, they don't stress about catching trains, and they don't look dumb
+^ And because they know that, they don't stress about catching trains, and as a side-effect they don't look dumb
 
 ---
 
@@ -283,7 +290,7 @@ theme: Next
 
 ![](images/crowded.jpeg)
 
-^ We can't fix SEPTA, but we can fix our own deploy processes
+^ We can't fix our transit systems, but we can fix our own deploy processes
 
 ---
 
@@ -297,17 +304,35 @@ theme: Next
 
 # Benefits
 
+^ Let's talk about the benefits again
+
+^ This time from a perspective that is more familar
+
+^ your own software development shop
+
 ---
 
 # ...to Management
+
+^ These are the maintainers in yehuda's example
+
+^ No pressure about when to release
 
 ---
 
 # ...to the Developers
 
+^ These are the contributors
+
+^ Easy to communicate about when features will land
+
 ---
 
 # ...to the Users
+
+^ These are your end-users
+
+^ They can depend on your software and know what to expect when it does change or break
 
 ---
 
@@ -459,6 +484,10 @@ theme: Next
 
 # 2. Automate releases
 
+^ If the thought of making your release process conform to this diagram frightens you, you're doing it wrong
+
+^ These releases should be automated!
+
 ^ This is easy when the only determinant is time. Also takes the "who?"
 
 ^ Both remove a lot of uncertainty and stress!
@@ -491,9 +520,15 @@ theme: Next
 
 # _"In fact, it was our instability that alienated early adopters."_
 
+^ In fact, when Ember saw they were losing some users, it wasn't because they didn't have Feature X
+
+^ It was because they were providing an unstable platform
+
 ---
 
 # _"We got a bad reputation for it."_
+
+^ It only takes getting burned once
 
 ---
 
@@ -503,7 +538,7 @@ theme: Next
 
 ---
 
-# _"Users don't migrate over night."_
+# _"Users don't migrate overnight."_
 
 ---
 
@@ -531,6 +566,8 @@ theme: Next
 
 ^ But here's the thing -- this is not news to anyone
 
+^ Not even facebook
+
 ^ I did not invent this idea
 
 ^ Neither did Yehuda
@@ -543,9 +580,13 @@ theme: Next
 
 ![fit](images/rust.png)
 
+^ "Scheduling the trains"
+
 ---
 
 ![fit](images/libreoffice.png)
+
+^ "Time based release trains have been shown to produce the best quality Free software"
 
 ---
 
@@ -555,23 +596,33 @@ theme: Next
 
 ![fit](images/eclipse.png)
 
+^ "simultaneous release, coordinated release, release train"
+
 ---
 
 ![fit](images/gnome.png)
+
+^ "time-based release schedule"
 
 ---
 
 ![fit](images/ubuntu.png)
 
+^ "Time-based rather than feature-driven"
+
 ---
 
 ![fit](images/debian.png)
+
+^ "Time-based release freezes"
 
 ---
 
 ![fit](images/gcc.png)
 
 ^ Earliest I could find, started in 2001
+
+^ "More frequent releases on a consistent schedule"
 
 ---
 
