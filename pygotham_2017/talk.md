@@ -250,7 +250,7 @@ buzz=5
 
 ^ functions can return different types
 
-^ RPython program restrictions mostly limit the ability to mix types in arbitrary ways.
+^ RPython mostly restricts the ability to mix types in arbitrary ways.
 
 ---
 
@@ -390,6 +390,8 @@ Processing block:
 fizz=3
 buzz=5
 ```
+
+^ Let's talk about some types of tokens in DIVSPL
 
 ---
 
@@ -947,6 +949,10 @@ rply.errors.LexingError
 >>>
 ```
 
+^ If i is not evenly divisible by number, return an empty string
+
+^ Otherwise, return the word used for the assignment
+
 ---
 
 # Let's make a parser
@@ -1433,11 +1439,9 @@ _main_ ⟶ _range_ _assignments_
 
 ^ This is a rough approximation
 
-^ First we nitialize the lexer and parser
-
-^ This is a rough approximation
-
 ^ Let's imagine this function is being called as an executable where the first argument is the source file name
+
+^ First we initialize the lexer and parser
 
 ---
 
@@ -1824,7 +1828,7 @@ fizzbuzzfuzz
 
 ^ didn't have a great answer for this
 
-^ but yesterday I was in James talk "Next Level Testing"
+^ but I was just in James talk "Next Level Testing"
 
 ^ in which in one of his examples he talks about his tool jmespath
 
@@ -1834,9 +1838,9 @@ fizzbuzzfuzz
 
 ^ I learned two things about jmespath
 
-^ First, it's pronounces james path
+^ First, it's pronounced james path
 
-^ Which means he named it after himself and clearly i approve of that
+^ Which means he named it after himself and clearly, as someone who wrote a language named DIVSPL, i approve of that
 
 ^ And second that it uses something called a "jmespath expression"
 
@@ -1878,6 +1882,8 @@ fizzbuzzfuzz
 
 ^ then yes
 
+^ it's significantly less characters
+
 ---
 
 ![inline](images/twitter1.png)
@@ -1897,13 +1903,6 @@ fizzbuzzfuzz
 ^ but maybe you came to this talk really wanting some high-performance fizzbuzzing
 
 ^ again... yes
-
----
-
-![fit autoplay](images/compiling.mov)
-
-
-^ once you get past the non-trivial time to compile everything in RPython
 
 ---
 
@@ -1956,6 +1955,8 @@ $ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
 $ /usr/bin/time bin/divspl fizzbuzz.divspl >/dev/null
         0.33 real         0.26 user         0.05 sys
 ```
+
+^ Maybe it's not the fastest, but it's definitely faster
 
 ---
 
