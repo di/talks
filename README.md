@@ -3,8 +3,29 @@ Slides from talks I have given, in chronological order.
 
 ---
 
+### Swiss Train Deployments
+_FLPY 2017 Talk (October 7, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/flpy_2017/swiss_train_deployments/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/flpy_2017/swiss_train_deployments/talk.md)
+
+---
+
+### Detecting Asteroids with Neural Networks
+_FLPY Talk (October 7, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/flpy_2017/astro-df/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/flpy_2017/astro-tf/talk.md)
+
+---
+
 ### The Fastest FizzBuzz In The West
-_PyCon 2016 Talk (May 20, 2017)_
+_PyGotham Talk (October 6, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/pygotham_2017/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/pygotham_2017/talk.md)
+
+---
+
+### The Fastest FizzBuzz In The West
+_PyCon 2017 Talk (May 20, 2017)_
 * [PDF](https://github.com/di/talks/blob/master/pycon_2017/talk.pdf)
 * [Markdown](https://github.com/di/talks/blob/master/pycon_2017/talk.md)
 
