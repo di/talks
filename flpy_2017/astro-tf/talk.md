@@ -27,8 +27,6 @@ theme: Next
 # Detecting Asteroids
 ## _with_
 # Neural Networks
-## _in_
-# TensorFlow
 
 ![](images/18364_unbox.jpg)
 
@@ -98,6 +96,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ Here's an example
 
+^ Can you find the asteroid?
+
 ---
 
 ![](images/18364_box.png)
@@ -110,7 +110,9 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ![](images/18364_large.jpg)
 
-^ This is not what most people think an asteroid looks like
+^ This is not what most people think an asteroid would look like
+
+^ first, pretty fuzzy looking
 
 ^ very colorful
 
@@ -122,11 +124,17 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ gray cold rocky, menancingly large
 
+^ this is not real, photoshopped
+
 ---
 
 # How does this work?
 
 ![](images/18364_unbox.jpg)
+
+^ Let's talk about why the first is what our asteroid looks like
+
+^ and not the second
 
 ---
 
@@ -142,11 +150,17 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ This is a diagram of the Hubble, but it's the same
 
-^ At the back, where the instrument package goes, we have an array of CCD sensors
+^ At the back, where the instrument package goes, we have an array of CCD (charge coupled device) sensors
 
 ---
 
 ![](images/ccd_array.jpg)
+
+^ This is an actual photo of the sensors
+
+^ They are arranged in a 5x6 grid
+
+^ You can see they are quite colorful as well
 
 ---
 
@@ -154,11 +168,13 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 * 355.1 nm (ultraviolet)
 * 468.6 nm (blue)
-* 616.5 nm (orange)
+* 616.5 nm (orange/yellow)
 * 748.1 nm (red)
 * 893.1 nm (infrared)
 
-^ They are not simultaneous
+^ This is because they have filters which all but a small portion of the spectrum
+
+^ They are not simultaneous, they fire one row at a time
 
 ^ Always the same order
 
@@ -168,6 +184,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ![](images/asteroid-0.png)
 
+^ let's go back to our photoshopped asteroid
+
 ^ So instead of this
 
 ---
@@ -175,6 +193,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 # (#nofilter)
 
 ![](images/asteroid-0.png)
+
+^ which is what it would look like with no filters at all
 
 ---
 
@@ -200,9 +220,25 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ Then yellow
 
+^ This is because while the camera is fixed to follow the background stars
+
+^ The asteroid is moving across this field of vision
+
+^ And as each filter fires, it's in a different spot relative to it's background
+
 ---
 
 ![](images/18364_large.jpg)
+
+^ Which is why we end up with this representing an asteroid
+
+^ Also raises an interesting phenomena
+
+^ because while we can detect asteroids moving perpendicular to us this way
+
+^ we can't detect asteroids moving directly towards us
+
+^ Which is maybe the more important class of asteroids to be able to detect
 
 ---
 
@@ -212,13 +248,19 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ First things first
 
+^ we need to clean up our data
+
 ---
 
 ![](images/18364_unbox.jpg)
 
+^ Again, when I say data I'm talking about an image just like this
+
 ^ There is a lot of wasted space here
 
 ^ We don't need to look at all the darkness
+
+^ If it's just black, there's no asteroids there
 
 ---
 
@@ -240,8 +282,7 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ---
 
-# 100:5
-# false positives
+# Lots of false positives
 
 ^ Extremely naive, approx 100:5 false positives to actual positives
 
@@ -270,15 +311,23 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ Manual classification, somewhat slow
 
-^ Yields approx 250 valid items, 500 invalid items
-
 ![](images/18364_unbox.jpg)
+
+---
+
+![fit](images/sorting.png)
+
+^ Because I literally had to do it by hand, separating valid images from invalid
+
+^ Yields approx 250 valid items, 500 invalid items
 
 ---
 
 # Features
 
 ^ Next step is to come up with some good features for our data
+
+^ Features are a subset or a simplification of the original data
 
 ![](images/18364_unbox.jpg)
 
@@ -287,6 +336,12 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 # Why use features?
 
 ^ Features allow us to reduce the number of data points into something more meaningful
+
+^ less data = shorter training times
+
+^ the downside is that we have to spend time coming up with good features
+
+^ features are not always necessary
 
 ![](images/18364_unbox.jpg)
 
@@ -359,6 +414,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 # 40px * 40px * 3 = 4800
 
+^ We'd have to split each color into three channels
+
 ^ This is just way too many inputs
 
 ![](images/18364_unbox.jpg)
@@ -389,6 +446,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ Notice the colors
 
+^ Let's say that a valid asteroid has to have a certain amount of yellow, and blue
+
 ---
 
 ![](images/bad_hues.png)
@@ -407,6 +466,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ![fit](images/chart_1.png)
 
+^ here, i've removed pixesl with values close to black, or close to white
+
 ^ For pixels in the valid value-spectrum (0.25 < `v` < 0.90)
 
 ^ How many are within 2 standard deviations from an optimal value?
@@ -419,11 +480,19 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ Ratio will be between 0 and 1
 
+^ on this graph, most are within the bounds
+
+^ so it will have a high ratio
+
 ---
 
 # Feature: Collinearity
 
 ^ The next feature we'll develop is cluster collinearity
+
+^ in the previous feature, we just looked at the colors
+
+^ we didn't care where they were located in the image
 
 ![](images/18364_unbox.jpg)
 
@@ -450,6 +519,10 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 ![fit](images/clust-18364-2.png)
 
 ^ You can see how the values that don't fall into the graph have been removed
+
+^ each point represents a color that has passed our test from before
+
+^ the green dots mark the center of mass of the cluster
 
 ---
 
@@ -483,6 +556,10 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ![fit](images/clust-494-2-line.png)
 
+^ Hard to draw a line closely connecting all three
+
+^ the three different exposures don't really represent movement here
+
 ---
 
 # Feature: Average cluster distance
@@ -497,9 +574,13 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ![fit](images/clust-18364-2.png)
 
+^ here, with our example asteroid, we see that the pixes of each cluster are relatively close to their center of mass
+
 ---
 
 ![fit](images/clust-494-2.png)
+
+^ but with the non-asteroid, they're farther away
 
 ---
 
@@ -519,6 +600,10 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 ---
 
 # Ok... where's the AI?
+
+^ So far all we've done is a little bit of math
+
+^ Where's the brains?
 
 ^ This type of classification is extrememly well suited for a neural network!
 
@@ -576,6 +661,8 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 
 ^ The output is either affirmative (1) or negative (0)
 
+^ really we're going to get some % likelyhood that it's an asteroid
+
 ![](images/18364_unbox.jpg)
 
 ---
@@ -625,6 +712,14 @@ Build and train a neural network to correctly identify asteroids in astrophotogr
 ^ 150 hidden neurons (`100` in first layer, `50` in second)
 
 ^ 1 output neuron (`1` if valid asteroid, `0` if invalid)
+
+---
+
+![fit](images/tf.png)
+
+^ TensorFlow is an open source library from google for machine learning
+
+^ With a Python API!
 
 ---
 
@@ -750,10 +845,9 @@ model = tf.contrib.learn.DNNClassifier(
 
 def input_fn(df):
     feature_cols = {
-        k: tf.constant(df[k].values)
-        for k in [
-            'hue_rat', 'col_min', 'dis_min'
-        ]
+        'hue_rat': tf.constant(df['hue_rat'].values),
+        'col_min': tf.constant(df['col_min'].values),
+        'dis_min': tf.constant(df['dis_min'].values),
     }
     label = tf.constant(df['label'].values)
     return feature_cols, label
