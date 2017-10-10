@@ -12,7 +12,7 @@ _FLPY 2017 Talk (October 7, 2017)_
 
 ### Detecting Asteroids with Neural Networks
 _FLPY Talk (October 7, 2017)_
-* [PDF](https://github.com/di/talks/blob/master/flpy_2017/astro-df/talk.pdf)
+* [PDF](https://github.com/di/talks/blob/master/flpy_2017/astro-tf/talk.pdf)
 * [Markdown](https://github.com/di/talks/blob/master/flpy_2017/astro-tf/talk.md)
 
 ---
