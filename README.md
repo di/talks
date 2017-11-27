@@ -3,6 +3,13 @@ Slides from talks I have given, in chronological order.
 
 ---
 
+### The Fastest FizzBuzz In The West
+_PyTexas Talk (November 18, 2017)_
+* [PDF](https://github.com/di/talks/blob/master/pytexas_2017/divspl/talk.pdf)
+* [Markdown](https://github.com/di/talks/blob/master/pytexas_2017/divspl/talk.md)
+
+---
+
 ### Swiss Train Deployments
 _FLPY 2017 Talk (October 7, 2017)_
 * [PDF](https://github.com/di/talks/blob/master/flpy_2017/swiss_train_deployments/talk.pdf)
