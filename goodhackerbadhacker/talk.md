@@ -1,17 +1,4 @@
-# [fit] Dustin Ingram
-# [fit] _[`http://github.com/di`](http://github.com/di)_
-
-^ My name's Dustin
-
-^ di on github
-
----
-
-![](images/jumbotron-081.jpg)
-
-^ I work at PromptWorks, a software consultancy in Philly
-
----
+theme: Poster
 
 # [fit] GOOD HACKER
 # [fit] _BAD HACKER_
@@ -20,20 +7,26 @@
 
 ^ I don't mean a whitehat vs. blackhat, I mean good as in capital-q quality
 
----
-
-# [fit] BOLT BUS
-## [fit] _"Bolt For A Buck"_
-
 ^ I'm going to talk about a specific hack as an example
 
 ^ And we'll decided whether I'm a good hacker or not
 
 ---
 
-![fit](images/bb.com1.png)
+# [fit] BOLT BUS
+## [fit] _"Bolt For A Buck"_
 
-^ If you're not familiar with bolt bus, I would describe it as...
+^ In the north east we have this company called BOLT BUS
+
+^ If you're not familiar with bolt bus,
+
+^ It's kind of like grayhound buses for hipsters and college students
+
+^ Which means you don't buy tickets at a bus station, you do it on the INTERNET
+
+---
+
+![fit](images/bb.com1.png)
 
 ^ You go to boltbus.com
 
@@ -53,7 +46,7 @@
 
 ![fit](images/ticket1.png)
 
-^ Once you pick one they email you your ticket
+^ Once you pick one they EMAIL you your ticket
 
 ---
 
@@ -65,7 +58,7 @@
 
 ![fit](images/ticket_taker.jpg)
 
-^ When you're at the bus you show it to a guy in a dayglow vest
+^ When you're at the bus you show it to the first person you see in a dayglow vest
 
 ---
 
@@ -82,17 +75,43 @@
 
 ![fit](images/ticket2.png)
 
-^ First thing I noticed was that on this electronic ticket
+^ First thing I noticed was that fancy QR code
+
+---
+
+![fit](images/ticket_taker_anno.jpg)
+
+^ The second thing I noticed is that this guy doesn't have a QR reader
+
+^ Never does
+
+^ He's just looking at the ticket with his eyeballs
+
+---
+
+![fit](images/ticket_taker_LASER.jpg)
+
+^ And I'm pretty sure he can't scan QR codes with is bare eyeballs
+
+---
+
+![fit](images/ticket2_zoom.png)
+
+^ So that means when he's looking at this ticket, he's only has the same information you're looking at right now
+
+^ Also, he has no way to verify it
 
 ---
 
 ![fit](images/ticket2_anno.png)
 
-^ First thing I noticed was that on this electronic ticket
+^ First thing I noticed was the boarding group number
 
 ---
 
 ![fit](images/ticket2_anno2.png)
+
+^ Then the schedule number
 
 ---
 
@@ -100,25 +119,11 @@
 
 ^ So that just leaves these five digits
 
+---
+
+![fit](images/ticket2_emoji.png)
+
 ^ Oh, and that fancy QR code
-
----
-
-![fit](images/ticket_taker_anno.jpg)
-
-^ But what if I told you that this guy doesn't have a QR reader
-
-^ He's just looking at the ticket with his eyeballs
-
-^ And I'm pretty sure he can't scan QR codes with is bare eyeballs
-
----
-
-![fit](images/ticket2.png)
-
-^ So that means when he's looking at this ticket, he's only has the same information you're looking at right now
-
-^ Also, he has no way to verify it
 
 ---
 
@@ -143,7 +148,7 @@
 
 ![fit](images/ticket2_anno5.png)
 
-^ And that the 168 was because was the 168th day of the year
+^ And that the 168 was because this particular date is the 168th day of the year
 
 ---
 
@@ -167,7 +172,7 @@
 
 ![fit](images/bb.com4_anno.png)
 
-^ To my horror, I also realized that the "api" was just sending raw HTML back
+^ To my horror, I also realized that the "api" was just sending huge chunks of raw HTML back
 
 ^ Totally useless
 
@@ -210,17 +215,22 @@ headers = {
     'Content-Length' : 0,
     'Host' : "www.boltbus.com",
     'Connection' : "Keep-Alive",
-    'Accept-Encoding' : "gzip"
+    'Accept-Encoding' : "gzip",
 }
 ```
 
-^ After running the app through Charles, I figured out that if I impersonated my android device
+^ After running the app through Charles and watching the requests, I figured out that if I impersonated my android device correctly
 
 ---
 
 ```python
-loc_url = "https://www.boltbus.com/services/1.0/LocationService.asmx/Locations"
-requests.get(loc_url, params={'originid':" "}, headers=headers).json()
+import requests
+
+requests.get(
+    "https://www.boltbus.com/services/1.0/LocationService.asmx/Locations",
+    params={'originid':" "},
+    headers=headers,
+).json()
 ```
 
 ^ And made a request to this URL with those headers and that payload
@@ -314,9 +324,52 @@ requests.get(sch_url, params=payload, headers=headers).json()
 
 ---
 
+```json
+[{
+	'DepartureDate': '/Date(1465565400000)/',
+	'DurationString': '00:50:00',
+	'Available': 40,
+	'Fare': 10.0,
+	'Segments': [],
+	'ArrivalDate': '/Date(1465568400000)/',
+	'Fares': [10.0],
+	'IsDeparted': True,
+	'Cancelled': False,
+	'WalkupFare': 10.0,
+	'ScheduleId': 7472,
+	'AvailableWheelchair': 2,
+	'Duration': {
+		'TotalMilliseconds': 3000000,
+		'Ticks': 30000000000,
+		'Hours': 0,
+		'TotalSeconds': 3000,
+		'TotalDays': 0.034722222222222224,
+		'Minutes': 50,
+		'TotalHours': 0.8333333333333333,
+		'Seconds': 0,
+		'Days': 0,
+		'TotalMinutes': 50,
+		'Milliseconds': 0
+	},
+	'BoardingGroup': 'AllRemainingOnlineSales',
+	'StartDate': '/Date(1465560000000)/',
+	'IsWalkup': True,
+	'ScheduleNBR': 9515            <---------------------------------------------------------------------------------
+}
+...
+```
+
+^ but this is no fun!
+
+---
+
 ### [fit] GOOD HACKER ATTRIBUTE #4:
 ## [fit] _MAKE BETTER_
 ## [fit] _TOOLS_
+
+---
+
+## [fit] _BOLT FOR A BUCK?_
 
 ---
 
@@ -340,7 +393,11 @@ requests.get(sch_url, params=payload, headers=headers).json()
 
 ---
 
-![fit](images/zip5.png)
+![fit](images/counterfeit.png)
+
+---
+
+![fit](images/counterfeit_anno.png)
 
 ---
 
@@ -351,10 +408,6 @@ requests.get(sch_url, params=payload, headers=headers).json()
 ---
 
 ![fit](images/counterfeit.png)
-
----
-
-![fit](images/counterfeit_anno.png)
 
 ---
 
@@ -377,6 +430,7 @@ requests.get(sch_url, params=payload, headers=headers).json()
 # [fit] A GOOD HACK_?_
 
 ^ So far, this seems like a pretty good hack
+
 ^ But I don't think it makes me a good hacker, because there's one thing I didn't do
 
 ---
@@ -386,6 +440,56 @@ requests.get(sch_url, params=payload, headers=headers).json()
 ## [fit] _DISCLOSURE_
 
 ^ I never told nobody
+
+---
+
+![fit](images/starbucks.png)
+
+^ this guy discovered there was a race condition when transferring money between starbucks gift cards
+
+^ basically you could take two cards and make two simultaneous transfers from one card to the other, you get twice the money!
+
+^ he tried multiple times to responsibly disclose this to Starbucks
+
+---
+
+> "The unpleasant part is a guy from Starbucks calling me with nothing like 'thanks' but mentioning 'fraud' and 'malicious actions' instead. Sweet!"
+
+^ Judging by what I already saw, didn't think I was going to get a better response from BoltBus
+
+^ So I decided to let this issue fix its self
+
+---
+
+![fit](images/ticket_taker.jpg)
+
+^ Pretty soon these guys started getting QR readers
+
+^ And just like that the "vulnerability" disappeared
+
+---
+
+# [fit] GOOD HACKER?
+# [fit] _BAD HACKER?_
+
+---
+
+1. PAY ATTENTION ✅
+2. COLLECT DATA ✅
+3. COLLECT GOOD TOOLS ✅
+4. MAKE BETTER TOOLS ✅
+5. PROOF OF CONCEPT ✅
+6. RESPONSIBLE DISCLOSURE ❌
+
+---
+
+# [fit] NET PROFIT:
+# [fit] _One $1.00 Bus Ride_
+
+---
+
+# [fit] MEDIOCRE
+# [fit] _HACKER_
 
 ---
 
