@@ -1,6 +1,7 @@
 theme: Plain Jane, 3
 footer: @di_codes
 
+# **What's New in Python 3.7**
 ## PyCaribbean 2019
 
 ^ http://pycaribbean.com/talk/what's-new-in-python-3.7/
@@ -198,7 +199,9 @@ Traceback (most recent call last):
 TypeError: Must be str
 ```
 
-^ downsides to this: more lines of code, slower
+^ this works, but there's downsides
+
+^ more lines of code, slower
 
 ---
 
@@ -243,6 +246,8 @@ $ python example.py
 
 ^ it works! wait what?
 
+^ type annotations aren't going to get in your way
+
 
 ---
 
@@ -258,6 +263,8 @@ Successfully installed mypy-0.670
 ```
 
 ^ to catch this bug, we need to install a type checker
+
+^ separate tool
 
 ---
 
@@ -276,7 +283,7 @@ test.py:10: error: Argument 1 to "Dog" has
 incompatible type "int"; expected "str"
 ```
 
-^ the when we run it, it finds our bug!
+^ then when we run it, it finds our bug!
 
 ---
 
@@ -356,6 +363,7 @@ NameError: name 'Dog' is not defined
 [.code-highlight: 5]
 [.code-highlight: 1]
 [.code-highlight: 6]
+[.code-highlight: 5]
 
 ```python
 class Dog:
@@ -447,7 +455,9 @@ foo bar
 SyntaxError: invalid syntax
 ```
 
-^ this is because it's a reserved keyword
+^ python 3.7
+
+^ this is because they're reserved keywords
 
 ---
 
@@ -527,17 +537,6 @@ Foo is awake
 
 ---
 
-
-```
-Time to wake up!
-Foo is awake
-
-
-```
-
----
-
-
 ```
 Time to wake up!
 Foo is awake
@@ -584,6 +583,8 @@ def bar():
 
 ---
 
+[.code-highlight: 1, 3-4, 7-8]
+
 ```python
 import asyncio
 
@@ -616,6 +617,8 @@ main()
 ^ this becomes...
 
 ---
+
+[.code-highlight: 1, 4-7, 10]
 
 ```python
 async def main():
@@ -708,6 +711,8 @@ def main():
 main()
 print("After main, var is", var)
 ```
+
+^ let's say we have this
 
 ---
 
@@ -982,7 +987,7 @@ print("After main, var is", var.get())  # spam
 
 ^ there is enough here to be an entire talk
 
-^ the goal of dataclasses is to save you from writing a lot of boilerplate
+^ the goal of dataclasses is to save you from writing a lot of boilerplate when creating classes
 
 ---
 
