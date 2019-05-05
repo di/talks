@@ -4,12 +4,9 @@
 
 # Abstract
 
-In this talk, we'll explore how maintaining a sense of fun and whimsy in
-science has a profound effect on discovery, innovation and progress.
+In this talk, we'll explore how maintaining a sense of fun and whimsy in science has a profound effect on discovery, innovation and progress.
 
-We'll discuss how you and I can keep computing fun on a day-to-day
-basis, maintain and nurture our natural curiosity, and just be open to the
-unknown, all to the benefit of our field, those we work with, and ourselves.
+We'll discuss how you and I can keep computing fun on a day-to-day basis, maintain and nurture our natural curiosity, and just be open to the unknown, all to the benefit of our field, those we work with, and ourselves.
 
 # Description
 
@@ -23,27 +20,19 @@ Alan Perlis, the first recipient of the Turing Award, said:
 > directions, and keeping fun in the house. I hope the field of computer
 > science never loses its sense of fun.
 
-In this talk, we'll explore how maintaining a sense of fun and whimsy in
-science has a profound effect on discovery, innovation and progress.
+In this talk, we'll explore how maintaining a sense of fun and whimsy in science has a profound effect on discovery, innovation and progress.
 
-We'll see how some famous thinkers, including Claude Shannon, Steve Jobs,
-Einstein, DaVinci and more followed their natural curiosity to keep science
-fun, all to great success.
+We'll see how some famous thinkers, including Claude Shannon, Steve Jobs, Einstein, DaVinci and more followed their natural curiosity to keep science fun, all to great success.
 
-We'll also talk about some modern examples of how folks are ensuring technology
-remains not-so-serious, including the beauty of the lightning talk, the
-Stupid Hackathon, Deep Dream, the Clock of the Long Now, Simone Giertz's
-robots, and some examples specific to the Python community.
+We'll also talk about some modern examples of how folks are ensuring technology remains not-so-serious, including the beauty of the lightning talk, the Stupid Hackathon, Deep Dream, the Clock of the Long Now, Simone Giertz's robots, and some examples specific to the Python community.
 
-And finally, we'll discuss how you and I can keep computing fun on a day-to-day
-basis, maintain and nurture our natural curiosity, and just be open to the
-unknown, all to the benefit of our field, those we work with, and ourselves.
+And finally, we'll discuss how you and I can keep computing fun on a day-to-day basis, maintain and nurture our natural curiosity, and just be open to the unknown, all to the benefit of our field, those we work with, and ourselves.
 
 # Audience
 
-This talk is for ...
+This talk is for any developer, but especially for those that programming either must be serious, or has lost it's fun.
 
-After watching this talk, ...
+After watching this talk, attendees should have new techniques for maintaining a sense of fun and whimsy when it comes to day-to-day programming, and our field in general.
 
 # Outline
 

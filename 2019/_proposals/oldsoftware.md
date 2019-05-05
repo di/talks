@@ -4,16 +4,17 @@
 
 # Abstract
 
+You just committed some new code and pushed it to production. It's live! But for how long? A week? A month? A year? How about ten thousand years?
 
+In this talk, we'll explore some really old software, and why we still need it.  We'll look at some core design principles for intentionally creating software to last a long time, with some help from other technologies. And, we'll discuss the tradeoffs of designing for longevity vs. flexibility.
 
 # Description
 
-You just committed some new code and pushed it to production. It's live! But
-for how long? A week? A month? A year? How about ten thousand years?
+You just committed some new code and pushed it to production. It's live! But for how long? A week? A month? A year? How about ten thousand years?
 
-As software developers, we view what we build as being far more ephemeral than
-nearly any other profession. The shelf life on our work is usually measured in
-years, not decades or centuries.
+As software developers, we view what we build as being far more ephemeral than nearly any other profession. The shelf life on our work is usually measured in years, not decades or centuries. However, there is some software that has been running for a long time...  perhaps longer than it's creators intended.
+
+In this talk, we'll explore some really old software, and why we still need it.  We'll look at some core design principles for intentionally creating software to last a long time, with some help from other technologies. And, we'll discuss the tradeoffs of designing for longevity vs. flexibility.
 
 # Audience
 

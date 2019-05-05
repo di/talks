@@ -1,6 +1,6 @@
 # Title
 
-* A Name For Your Duck: Static Typing in Python
+* Static Typing in Python
 
 # Description
 
