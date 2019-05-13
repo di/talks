@@ -24,6 +24,21 @@ After watching this talk, attendees should have a better idea of how the infrast
 
 # Outline
 
-* Introduction (3 mins)
-*
-* Conclusion (2 mins)
+* Introduction ( mins)
+* How PyPI works, architecturly ( mins)
+  * What happens when you type "pip install ..."
+  * PyPI Legacy vs Warehouse
+  * A modern Python codebase
+  * Handling traffic at scale
+* How PyPI works, organizationally ( mins)
+  * Administrators
+  * Maintainers
+  * Moderators
+  * Volunteers
+  * Contributors
+* How PyPI works, financially ( mins)
+  * Non-profit status, PSF sponsorship
+  * In-kind donations from sponsors
+  * Contributions from individual donors
+* A call to action ( mins)
+* Conclusion ( mins)

@@ -18,16 +18,16 @@ After watching this talk, attendees should understand that Python is untyped by 
 
 # Outline
 
-* About types (4 min)
+* About types ( min)
   * Types of type systems
   * Advantages of static typing
   * Disadvantages of static typing
-* Types in other languages (3 min)
+* Types in other languages ( min)
   * C
   * Ruby
   * JavaScript
   * Go
-* Types in Python (10 min)
+* Types in Python ( min)
   * How Python did/does typing
   * The `type` function
   * PEP 484: Type Hints
@@ -35,9 +35,9 @@ After watching this talk, attendees should understand that Python is untyped by 
   * Tools
     * mypy
     * pytype
-* The great benefits to static typing in Python (6 min)
+* The great benefits to static typing in Python ( min)
   * Static code analysis
   * More documentation
   * Code completion
-* The disadvantages to static typing (4 min)
-* The challenges of static typing (3 min)
+* The disadvantages to static typing ( min)
+* The challenges of static typing ( min)
