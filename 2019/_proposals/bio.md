@@ -5,3 +5,8 @@ My PyCon 2019 talk was a packed room (https://twitter.com/tryvanillajs/status/11
 I’m a member of the Python Packaging Working Group, the Python Packaging Authority, and a maintainer, contributor, and administrator of The Python Package Index (https://pypi.org/).
 
 I have been a professional Python developer for over ten years. Currently, I’m a Developer Advocate at Google, focusing on supporting Python users who use Google Cloud.
+
+
+
+
+Dustin is a Developer Advocate at Google, focused on supporting the Python community on Google Cloud. He's also a member of the Python Packaging Authority, maintainer of the Python Package Index, and organizer for the PyTexas conference.

@@ -39,16 +39,16 @@ After watching this talk, attendees should have new techniques for maintaining a
 * Introduction ( mins)
 * Why we need fun in computing ( mins)
 * Some classic examples ( mins)
-  * Claude Shannon
-  * Steve Jobs
-  * Einstein
-  * DaVinci
+    * Claude Shannon
+    * Steve Jobs
+    * Einstein
+    * DaVinci
 * Some modern examples ( mins)
-  * The Clock of the Long Now
-  * The Stupid Hackathon
-  * Simone Giertz's not-so-great robots
-  * The beauty of the lightning talk
-  * Fun in the Python community
+    * The Clock of the Long Now
+    * The Stupid Hackathon
+    * Simone Giertz's not-so-great robots
+    * The beauty of the lightning talk
+    * Fun in the Python community
 * Keeping fun in computing ( mins)
 * Conclusion ( mins)
 

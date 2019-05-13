@@ -28,19 +28,19 @@ After watching the talk, attendees should have an understanding of how to build 
 
 * Introduction (3 mins)
 * Examples of long-running software systems (7 minutes)
-  * NYC Subway System
-  * MOCAS (Mechanization of Contract Administration Services)
-  * Voyager 1 and 2
-  * Python Package Index
+    * NYC Subway System
+    * MOCAS (Mechanization of Contract Administration Services)
+    * Voyager 1 and 2
+    * Python Package Index
 * Core design principles (13 minutes)
-  * Longevity
-  * Maintainability
-  * Transparency
-  * Evolvability
-  * Scalability
+    * Longevity
+    * Maintainability
+    * Transparency
+    * Evolvability
+    * Scalability
 * Tradeoffs of design (5 min)
-  * Ephemerality: Software vs physical objects
-  * Longevity vs flexibility
+    * Ephemerality: Software vs physical objects
+    * Longevity vs flexibility
 * Conclusion (2 mins)
 
 # Referencs

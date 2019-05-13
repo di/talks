@@ -24,15 +24,15 @@ After watching this talk, attendees should know exactly what they need to change
 
 * Introduction ( mins)
 * An environment for development ( mins)
-  * Eliminating inconsistencies between environments
-  * Optimizing for onboarding
+    * Eliminating inconsistencies between environments
+    * Optimizing for onboarding
 * An environment for your test suite ( mins)
-  * Ensuring non-determinism
-  * Applications vs. libraries
+    * Ensuring non-determinism
+    * Applications vs. libraries
 * A modern dependency workflow ( mins)
-  * Hashing and pinning
-  * Auto-upgrading
-  * Ensuring nondeterministic behavior
+    * Hashing and pinning
+    * Auto-upgrading
+    * Ensuring nondeterministic behavior
 * Miscellanous: linting and autoformatting ( mins)
 * Taking your environment to prod ( mins)
 * Conclusion ( mins)
