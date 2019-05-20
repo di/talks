@@ -16,7 +16,7 @@ In this talk, we'll take a look at common patterns for improving the local devel
 
 # Audience
 
-This talk is for anyone who has struggled to set up their local development environment for a software project. This talk is useful for both open-source maintainers and for those working on
+This talk is for anyone who has struggled to set up their local development environment for a software project. This talk is useful for both open-source maintainers and for those working on their own projects and applications.
 
 After watching this talk, attendees should know exactly what they need to change to make any given codebase more accessible and approachable for new and current developers alike.
 
