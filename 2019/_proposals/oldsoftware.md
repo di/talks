@@ -48,3 +48,4 @@ After watching the talk, attendees should have an understanding of how to build 
 https://www.embedded.com/electronics-blogs/max-unleashed-and-unfettered/4443344/Meet-the-world-s-oldest-computer-program-that-s-still-in-use-today
 https://www.technologyreview.com/s/538966/what-is-the-oldest-computer-program-still-in-use/
 https://bdmpublications.com/10-ancient-computers-still-use-today/
+https://tedium.co/2019/06/13/nyc-subway-os2-history/
