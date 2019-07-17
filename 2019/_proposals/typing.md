@@ -41,3 +41,7 @@ After watching this talk, attendees should understand that Python is untyped by 
     * Code completion
 * The disadvantages to static typing ( min)
 * The challenges of static typing ( min)
+
+# References
+https://twitter.com/codinghorror/status/1141848007404425221?s=19
+https://veekaybee.github.io/2019/07/08/python-type-hints/
