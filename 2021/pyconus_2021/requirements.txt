@@ -88,7 +88,7 @@ python-frontmatter==0.5.0
 pytoml==0.1.21
 pytz==2020.1
 pyxdg==0.27
-PyYAML==5.3.1
+PyYAML==5.4
 readme-renderer==29.0
 regex==2020.4.4
 requests==2.23.0
