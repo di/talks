@@ -12,7 +12,7 @@ bleach==3.1.5
 build==0.3.1.post1
 bump==1.2.0
 cachetools==4.2.0
-celery==4.4.6
+celery==5.2.2
 certifi==2020.4.5.1
 cffi==1.14.0
 chardet==3.0.4
