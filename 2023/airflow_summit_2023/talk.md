@@ -1,3 +1,5 @@
+autoscale: true
+
 ![](images/title.jpg)
 
 ---
@@ -16,22 +18,67 @@
 
 "Everything you read in the news is absolutely true... except for the rare story of which you happen to have firsthand knowledge"
 
----
-
-I work on Google's Open Source Software Security team
-
-Literally my job to figure out the ways in which open source is insecure, and how to fix it.
+^ For me, that area of firsthand knowledge is around open source and security
 
 ---
 
-I've seen so many headlines like ...
+# Firsthand knowledge
 
-You'd think, "great dustin! half your job is already done, just go fix those things"
+* Google's Open Source Security Team
+* Python Software Foundation
+* Python Package Index
+* Open Source Software Security Foundation
+
+^ I have a little bit of firsthand knowledge!
+
+^ GOSST, where our mission is to make the open source software that google -- and the rest of the world -- more secure
+
+^ PSF board, where I help ensure the long-term success of one very big open-source Python project you've probably heard of: python itself
+
+^ PyPI maintainers, where I help ensure the long-term success of hundreds of thousands of tiny python projects, many of which you've never heard of
+
+^ OpenSSF TAC, where I help guide the success of the next generation of open source security technologies.
+
+^ But also, it's literally my job to figure out the ways in which open source is insecure, and how to fix it.
+
+---
+
+# Headlines
+
+* "The Next Supply Chain Attack Vector: Open-Source Software"
+* "Attacks on Software Supply Chains To Increase in Severity in 2023"
+* "Software Supply Chain Attacks Hit 61% of Firms"
+* "Banking Sector Targeted in Open-Source Software Supply Chain Attacks"
+* "Coder unpublished 17 lines of JavaScript and 'broke the internet'"
+* "Researchers find 633% increase in cyber-attacks aimed at open-source repositories"
+* "The Internet Is on Fire"
+
+^ I've seen so many headlines like ...
+
+
+---
+
+# Headlines (continued...)
+
+* "Dozens of malicious PyPI packages discovered targeting developers"
+* "Malicious PyPI packages stealing credit cards and injecting code"
+* "Malicious software libraries found in PyPI posing as well known libraries"
+* "3500 packages uploaded to PyPI, pointing to a malicious URL"
+* "This malicious PyPI package mixed source and compiled code to dodge detection"
+* "Frankenstein malware stitched together from code of others disguised as PyPI package"
+
+---
+
+# Headline:
+## *I'm tired of these headlines*
+
+^ You'd think, "great dustin! half your job is already done, just go fix those things"
 
 ^ But to be honest, I'm tired of these headlines
 
 ^ It's not that they're wrong, per se. Just that it's sort of like declaring "water is wet!"
 
+^ For anyone with firsthand knowledge, this is stuff that has been known for a long time.
 
 ^ So tired, in fact, that I'm just going to write the one headline to end all headlines
 
@@ -86,6 +133,56 @@ You'd think, "great dustin! half your job is already done, just go fix those thi
 
 ---
 
+# This talk
+
+* Understanding tradeoffs
+* unclear solutions
+* Buzzorthy vs impact
+* what we've done
+* continuing to build on trust
+
+---
+
+
+# Everything
+## *is a tradeoff*
+
+^ there are tradeoffs in every decision, and there is never just one best solution.
+
+^ in literally every engineering decision, a tradeoff has been made
+
+---
+
+# Bugs
+## *are tradeoffs*
+
+^ Your code probably has bugs. Sorry, but it's true. But it's ok!
+
+^ You wrote those bugs as part of a tradeoff
+
+^ You could have spendt 10x, 20x the time writing the code, reviewing the code, testing the code, and it probably would have had less bugs. Not perfect, but better.
+
+^ Instead, you had more time to add a new feature. Or you got a feature out faster. Or you were able to fix more issues your users were experiencing.
+
+
+---
+
+# Python is a success
+## *because of it's tradeoffs*
+
+^ Python is more than 30 years old, PyPI is 20 years old, and we've made some significant tradeoffs in that time
+
+^ This is not to say that every tradeoff we made was the _right_ tradeoff -- we've definitely learned some lessons as well (like how and when to do a major version bump)
+
+^ But overall, each of these is a tradeoff that has ultimately led to Python's success. Here's a headline: Python is a success!
+
+
+---
+
+![fit](images/petty_tyrant.jpg)
+
+---
+
 # unclear solutions
 
 ^ and there isn't always a clear solution.
@@ -97,23 +194,6 @@ You'd think, "great dustin! half your job is already done, just go fix those thi
 ^ a false negative means that malware becomes trusted. a false positive means something legitimate, that people might need, is getting blocked or removed in error.
 
 ^ as a result, you need a human in the loop, because the last thing we want to do is accidentally wipe someones legitimate project off of PyPI
-
-
----
-
-# tradeoffs
-
-Python is 30 years old
-PyPI is 20 years old
-Anyone out there responsible for running a project/service that long?
-How well does it do?
-
-
-Why
-Each of these is a tradeoff that has ultimately led to Python's success
-Here's a headline: Python is a success!
-It's not perfect
-There's a lot we've learned over the last 30 years (like how to do Major version bumps)
 
 
 ---
@@ -157,6 +237,12 @@ There are expectations, and those expectations extend to things like taking reas
 ---
 
 ![](images/final.jpg)
+
+^ thanks to organizers and conference staff, for inviting me to join you at your conference
+
+^ shoutout to everyone who has already enabled 2FA on PyPI
+
+^ and thanks to you all for listening
 
 ---
 
