@@ -4,13 +4,14 @@ autoscale: true
 
 ---
 
-# [fit] Knoll's Law
+# Knoll's Law
+## *of media accuracy*
 
 ---
 
 # Knoll's Law
 
-"Everything you read in the newspapers is absolutely true...
+"Everything you read in the news is absolutely true...
 
 ---
 
@@ -136,13 +137,17 @@ autoscale: true
 # This talk
 
 * Understanding tradeoffs
-* unclear solutions
-* Buzzorthy vs impact
-* what we've done
-* continuing to build on trust
+* Evaluating impact
+* Making progress
 
 ---
 
+## **Part 1:**
+# Understanding tradeoffs
+
+^ here's the thing you need to understand about tradeoffs:
+
+---
 
 # Everything
 ## *is a tradeoff*
@@ -167,8 +172,18 @@ autoscale: true
 
 ---
 
+# Breaking changes
+## *are tradeoffs*
+
+---
+
+# Insecurities
+## *are tradeoffs*
+
+---
+
 # Python is a success
-## *because of it's tradeoffs*
+## *because of its tradeoffs*
 
 ^ Python is more than 30 years old, PyPI is 20 years old, and we've made some significant tradeoffs in that time
 
@@ -176,18 +191,49 @@ autoscale: true
 
 ^ But overall, each of these is a tradeoff that has ultimately led to Python's success. Here's a headline: Python is a success!
 
+---
+
+# Example:
+## _Malware on PyPI_
+
+^ I'll give you one example: malware on PyPI. lots of news about it! happens all the time.
+
+---
+
+![fit](images/malware.jpg)
+
+^ I personally have removed thousands of malware packages from PyPI, most of them reported by third-party security researchers
+
+^ take my word for it: this is not a thing I enjoy doing
+
+---
+
+# Malware
+## *is a tradeoff*
+
+^ a lot of people will say "just block all malware on pypi" or "add additional obstacles to publish" or "require an audit before a release can go live".
+
+^ putting aside, for a moment, whether that's even possible. is it even desireable, overall?
+
+^ people complain all the time about the complexity of python packaging, but challenges publishing to PyPI is rarely part of that, because we've put a ton of effort into making that as easy as possible.
+
+^ the fact that it's easy to publish malware on PyPI is because it's easy for anyone to publish anything on PyPI.
+
+^ this is noticible and not imagined
 
 ---
 
 ![fit](images/petty_tyrant.jpg)
 
----
+^ when you compare the experience as a maintainer on PyPI to the experience of a maintainer on other ecosystems
 
-# unclear solutions
+^ this is not to say that this other ecosystem is bad, to be clear.
 
-^ and there isn't always a clear solution.
+^ just that they have made a different set of tradeoffs.
 
-^ I'll give you one example: malware on PyPI. lots of news about it! happens all the time. but the solution isn't as simple as "well, just block all malware"
+^ it's easy to say that the solution to malware on pypi is "well, just block all malware"
+
+^ CPAN has almost no malware on it, as far as I'm aware. but this comes at the cost of signficiant friction for it's users
 
 ^ classifying software is hard. especially hard in a powerful and dynamic language like Python, and harder at scale like PyPI.
 
@@ -195,44 +241,117 @@ autoscale: true
 
 ^ as a result, you need a human in the loop, because the last thing we want to do is accidentally wipe someones legitimate project off of PyPI
 
+^ at pypi's scale, something like what CPAN does is not really feasible
+
+^ #TODO better transition
 
 ---
 
-# The inflection point
+## **Part 2:**
+# Evaluating impact
+
+^ one of the key thing to take into account when evaluating a tradeoff is impact
+
+^ in the example before, I said bugs were tradeoffs. you're ok with having a few bugs in your software because the overall impact of the average bug is negligle.
+
+^ you probably have good procedures around detecting, triaging and resolving bugs. hopefully, you have a way to evaluate the impact of bugs and generally can limit their scope
+
+---
+
+# Example:
+## *The Knight Capital bug*
+
+^ https://www.henricodolfing.com/2019/06/project-failure-case-study-knight-capital.html
+
+---
+
+# Example:
+## *The Python 2→3 migration*
+
+---
+
+# Example:
+## *Malware on PyPI*
+
+^ here's a question: is malware actually an impactful problem?
+
+^ obviously it'd be preferrable to not have malware on PyPI
+
+^ but in the grand scheme of all the thing we can work on to make PyPI users more secure, is preventing malware the most impactuful thing?
+
+^ based on my experience, I would argue that it's not. It's a high liklihood, low impact sort of thing. It happens often, but doesn't actually affect the large majority of users
+
+^ on the other hand, 2fa #TODO
+
+---
+
+## **Part 3:**
+# Making progress
+
+^ Just because you've made a tradeoff doesn't absolve you from continuing to try to make progress
 
 ^ All that said, I do think we're at an inflection point right now
 
 ^ Where we're so popular that we can stand to sacrifice some usability for security.
 
----
-
-# we have been doing good!
-
-Actually, practicaly everything we've
-2fa grant, titan keys, 2fa mandate
-Trusted Publishing
-Remove pgp signatures
-Malware reporting project
-Percentage of things uploaded that are malware
-Percentage of things we know about that is still there
-vulnerabilities
-Pip audit and advisory database
-Organizations
-Sigstore
-
-
-Over $1m in funding directed to the PSF and it's projects
-
+^ I want to share some of the substantial and significant progress the Python community has made towards increased open source security
 
 ---
 
-# this is all built on trust
+# Progress:
+## *2FA, Key giveaway, and mandate*
 
-Ultimately, this community exists because we trust each other
+---
 
-Part of that trust is that we can share code with each other and it will not erase our hard drive
+# Progress:
+## *Trusted Publishing*
 
-There are expectations, and those expectations extend to things like taking reasonable security measures to keep your users safe.
+---
+
+# Progress:
+## *`pip-audit` & advisory database*
+
+---
+
+# Progress:
+## *PyPI Organizations*
+
+---
+
+# Progress:
+## *Security Developer in Residence*
+
+---
+
+# Progress:
+## *PyPI Safety & Security Engineer*
+
+---
+
+# Progress:
+## *Malware reporting project*
+
+
+^ Percentage of things uploaded that are malware
+^ Percentage of things we know about that is still there
+
+---
+
+# Progress:
+## *Over $1M in funding directed to Python open-source security*
+
+^ if that's not progress, I don't know what is
+
+---
+
+# Progress:
+## *Is built on trust*
+
+^ Ultimately, this community exists because we trust each other
+
+^ Part of that trust is that we can share code with each other and it will not erase our hard drive
+
+^ There are expectations, and those expectations extend to things like taking reasonable security measures to keep your users safe.
 
 ---
 
@@ -250,8 +369,5 @@ There are expectations, and those expectations extend to things like taking reas
 ## Test *Test* **Test**
 
 * test
-* test
-* test
-
-
-
+* *test*
+* **test**
