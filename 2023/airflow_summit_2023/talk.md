@@ -7,6 +7,8 @@ autoscale: true
 # Knoll's Law
 ## *of media accuracy*
 
+^ do y'all know about knolls law?
+
 ---
 
 # Knoll's Law
@@ -40,7 +42,7 @@ autoscale: true
 
 ^ OpenSSF TAC, where I help guide the success of the next generation of open source security technologies.
 
-^ But also, it's literally my job to figure out the ways in which open source is insecure, and how to fix it.
+^ so, it's literally my job to figure out the ways in which open source is insecure, and how to fix it.
 
 ^ and lucky for me, there has been a lot of attention paid to this area recently
 
@@ -111,7 +113,7 @@ autoscale: true
 # Headline:
 ## *Open Source Is Not "Secure"*
 
-^ there is no perfectly secure software ecosystem, programming language, deployment environment, cloud provider.
+^ there is no perfectly secure software ecosystem, programming language, deployment environment, cloud provider. open source is no exception.
 
 ^ some are better than others in some ways, and yes, we still have very real problems to solve
 
@@ -130,7 +132,7 @@ autoscale: true
 
 ^ it's but a small flaw in an otherwise iceberg sized secure ecosystem
 
-^ in fact, many things we consider security issues are not necessarily flaws, but tradeoffs we have made over time, for usability, etc.
+^ and in fact, many things we consider security issues are not necessarily flaws, but tradeoffs we have made over time, for usability, etc.
 
 ^ I want to give you a bit of context about these tradeoffs
 
@@ -147,6 +149,8 @@ autoscale: true
 * Making progress
 
 ^ overall, I want to give you some context for security in our ecosystem
+
+^ but generally, this advise should be applicable to any ecosystem, software project, not just limited to security
 
 ^ I want to give you an overall sense that the Python ecosystem has generally made the right decisions when it comes to security
 
@@ -192,7 +196,7 @@ autoscale: true
 
 ^ Rather than spending an order of magnitude more time getting the design exactly right the first time (and, let's be honest, probably still getting something wrong), you got it into the hands of users faster, got feedback faster, and hopefully can iterate on it.
 
-^ at the expense of a somewhat rough or expensive transition
+^ at the expense of a somewhat rough or expensive transition down the road
 
 ---
 
@@ -226,7 +230,7 @@ autoscale: true
 
 ^ The important thing is not whether we make a tradeoff, but how we handle the issues that arise as a result
 
-^ If you're writing buggy code but have no system to catch, triage and fix those bugs, that's the problem.
+^ If you're writing mildly buggy code but have no system to catch, triage and fix those bugs, that's the problem.
 
 ^ Similarly in Python, we have made tradeoffs, but overall we have good systems to handle the side effects of those tradeoffs
 
@@ -241,7 +245,7 @@ autoscale: true
 
 ![fit](images/malware.jpg)
 
-^ I personally have removed thousands of malware packages from PyPI, most of them reported by third-party security researchers
+^ I personally have removed thousands of malware packages from PyPI, almost all of them reported by third-party security researchers
 
 ^ take my word for it: this is not a thing I enjoy doing
 
@@ -252,13 +256,13 @@ autoscale: true
 # Malware
 ## *is a tradeoff*
 
-^ a lot of people will say "just block all malware on pypi" or "add additional obstacles to publish" or "require an audit before a release can go live".
+^ if you look for solutions to this problem, a lot of people will say "just block all malware on pypi" or "add additional obstacles to publish" or "require an audit before a release can go live".
 
 ^ putting aside, for a moment, whether that's even possible. is it even desireable, overall?
 
 ^ people complain all the time about the complexity of python packaging, but challenges publishing to PyPI is rarely part of that, because we've put a ton of effort into making that as easy as possible.
 
-^ the fact that it's easy to publish malware on PyPI is because it's easy for anyone to publish anything on PyPI.
+^ the fact that it's easy to publish some random malware package on PyPI is because it's easy for anyone to publish anything on PyPI.
 
 ^ this is noticible and not imagined
 
@@ -295,7 +299,9 @@ autoscale: true
 
 ^ in the example before, I said bugs were tradeoffs. you're ok with having a few bugs in your software because the overall impact of the average bug is probably not that bad.
 
-^ and, you probably have good procedures around detecting, triaging and resolving bugs. hopefully, you have a way to evaluate the impact of bugs and generally can limit their scope
+^ and, you probably have good procedures around detecting, triaging and resolving bugs.
+
+^ hopefully, you also have a way to evaluate the impact of bugs and generally can limit their scope
 
 ^ but sometimes, perhaps rarely, bugs can have an outsized impact
 
@@ -370,7 +376,7 @@ autoscale: true
 
 ^ on the other hand, an attacker getting access to the account of a single maintainer of a somewhat popular package and making a malicious release becuase their password leaked and they didn't have 2fa enabled would be highly impactful
 
-^ this has happened exactly once, but I would estimate that the number of users affected exceeds that of all users affected from random malware in the last year combined.
+^ this has happened exactly once, as far as I'm aware, but I would estimate that the number of users affected exceeds that of all users affected from random malware in the last year combined.
 
 ---
 
@@ -378,10 +384,6 @@ autoscale: true
 # Making progress
 
 ^ Just because you've made a tradeoff doesn't absolve you from continuing to try to make progress against that which you've traded off against
-
-^ All that said, I do think we're at an inflection point right now
-
-^ Where we're so popular that we can stand to sacrifice some usability for security.
 
 ^ I want to share some of the substantial and significant progress the Python community has made towards increased open source security
 
@@ -554,6 +556,8 @@ autoscale: true
 
 # Progress:
 ## *Is built on trust*
+
+^ I just showed you a slice of the python ecosystem, but this is playing out across the entire open source ecosystem
 
 ^ Ultimately, this community exists because we trust each other
 
