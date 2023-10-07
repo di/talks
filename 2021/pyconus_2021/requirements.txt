@@ -48,7 +48,7 @@ idna==2.9
 iniconfig==1.0.1
 isort==4.3.21
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 keyring==21.8.0
 kombu==4.6.11
 Markdown==3.2.2
